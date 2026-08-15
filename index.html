@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Deepak Timalsina — Bioanalytical Chemistry</title>
-<meta name="description" content="Portfolio of a PhD researcher in bioanalytical chemistry: ultra-trace PFAS detection, environmental remediation, and quantitative proteomics." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Deepak Timalsina — Bioanalytical Chemistry</title>
+<meta name="description" content="Portfolio of a PhD researcher in bioanalytical chemistry: ultra-trace PFAS detection, environmental remediation, and quantitative proteomics." />
 <style>
   :root{
-    --bg: #FFFFFF;
+    --bg: #FFF;
     --bg-alt: #F6F9FA;
     --bg-panel: #F2F6F8;
     --bg-panel-2: #E9F0F3;
     --line: #DCE6EA;
-    --signal: #0B6E77;
+    --signal: #001CFF;
     --signal-dim: rgba(11,110,119,0.28);
     --signal-faint: rgba(11,110,119,0.07);
     --flag: #B85C08;
     --text: #142430;
-    --text-muted: #48606E;
-    --text-faint: #74909D;
+    --text-muted: #0BA162;
+    --text-faint: #FF0000;
     --font-display: 'Fraunces', serif;
     --font-body: 'IBM Plex Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
@@ -42,7 +42,7 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  a{ color: var(--signal); text-decoration: none; }
+  a{ color: var(--text); text-decoration: none; }
   a:hover{ text-decoration: underline; }
   a:focus-visible, button:focus-visible{ outline: 2px solid var(--signal); outline-offset: 3px; }
 
@@ -58,24 +58,22 @@
   .nav-inner{
     max-width: var(--maxw); margin:0 auto; padding: 14px 28px;
     display:flex; align-items:center; justify-content: space-between; gap: 16px;
+    flex-wrap: wrap;
   }
   .logo{
     display:flex; align-items:center; gap:10px; font-family: var(--font-mono); font-size:14px;
     color: var(--text); background:none; border:none; cursor:pointer; padding:0;
   }
   .logo svg{ width:22px; height:16px; display:block; }
-  .navlinks{ display:flex; gap: 20px; flex-wrap: wrap; }
+  .navlinks{ display:flex; gap: 8px; flex-wrap: wrap; }
   .navlinks a{
-    color: var(--text-muted); font-family: var(--font-mono); font-size: 13px;
-    letter-spacing: .03em; text-decoration:none; padding: 4px 2px; border-bottom: 1px solid transparent;
-    cursor:pointer;
+    color: #fff; font-family: var(--font-mono); font-size: 13px;
+    letter-spacing: .03em; text-decoration:none; padding: 8px 14px; border-radius: 6px;
+    cursor:pointer; background: var(--signal); border: 1px solid var(--signal);
+    transition: background .15s, color .15s, border-color .15s;
   }
-  .navlinks a:hover, .navlinks a.active{ color: var(--signal); border-bottom-color: var(--signal); text-decoration:none; }
-
-  /* PAGES: only one visible at a time, swapped by click */
-  .page{ display:none; }
-  .page.active{ display:block; animation: pageIn .32s ease both; }
-  @keyframes pageIn{ from{ opacity:0; transform: translateY(8px); } to{ opacity:1; transform:none; } }
+  .navlinks a:hover{ color: #fff; background: #0a5a62; border-color: #0a5a62; text-decoration:none; }
+  .navlinks a.active{ color: var(--signal); background: #fff; border-color: var(--signal); text-decoration:none; }
 
   .baseline-strip{ width:100%; overflow:hidden; line-height:0; border-bottom:1px solid var(--line); }
   .baseline-strip svg{ width:100%; height:34px; display:block; }
@@ -88,22 +86,22 @@
     color: var(--signal); text-transform: uppercase; margin: 0 0 14px;
     display:flex; align-items:center; gap:10px;
   }
-  .eyebrow::before{ content:''; width:16px; height:1px; background: var(--signal); display:inline-block; }
+  .eyebrow::before{ content:''; width:16px; height:1px; background: var(--text); display:inline-block; }
   h2.section-title{
-    font-family: var(--font-display); font-weight: 600; font-size: clamp(26px, 3.4vw, 38px);
+    font-family: var(--text); font-weight: 600; font-size: clamp(26px, 3.4vw, 38px);
     margin: 0 0 22px; color: var(--text);
   }
-  .section-lede{ color: var(--text-muted); max-width: 62ch; margin: 0 0 34px; font-size: 15.5px; }
+  .section-lede{ color: var(--text); max-width: 62ch; margin: 0 0 34px; font-size: 15.5px; }
 
   /* HOME / MASTHEAD */
-  .hero-banner{ position: relative; overflow:hidden; padding: 64px 0 0; border-bottom: 1px solid var(--line); }
-  .hero-bg{ position:absolute; inset:0; z-index:0; opacity:0.9; }
+  .hero-banner{ position: relative; overflow:hidden; padding: 120px 0 0; border-bottom: 1px solid var(--line); }
+  .hero-bg{ position:absolute; inset:0; z-index:0; opacity:2.0; }
   .hero-bg svg{ width:100%; height:100%; }
   .hero-fade{ position:absolute; inset:0; z-index:1; background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, var(--bg) 90%); }
   .hero-inner{ position:relative; z-index:2; }
   .hero-grid{ display:grid; gap: 26px; padding-bottom: 8px; }
   .hero h1{
-    font-family: var(--font-display); font-weight: 600; font-style: normal;
+    font-family: var(--font-display); font-weight: 800; font-style: normal;
     font-size: clamp(32px, 5.2vw, 58px); line-height: 1.1; letter-spacing: -0.01em;
     margin: 10px 0 26px; max-width: 16ch; color: var(--text);
   }
@@ -127,20 +125,20 @@
   .hero-chroma path.trace{ fill:none; stroke: var(--signal); stroke-width:2; }
   .hero-chroma path.base{ fill:none; stroke: var(--line); stroke-width:1; }
   .hero-chroma .peak-dot{ fill: var(--flag); }
-  .hero-chroma .peak-label{ font-family: var(--font-mono); font-size: 10px; fill: var(--text-faint); }
+  .hero-chroma .peak-label{ font-family: var(--text); font-size: 20px; fill: var(--text); }
 
   .stat-row{ display:flex; gap: 40px; flex-wrap:wrap; padding: 26px 0 42px; border-top: 1px solid var(--line); margin-top: 8px; }
   .stat{ font-family: var(--font-mono); }
-  .stat .num{ color: var(--signal); font-size: 13px; display:block; margin-bottom: 4px; }
-  .stat .lbl{ color: var(--text-faint); font-size: 12px; }
+  .stat .num{ color: var(--signal); font-size: 20px; display:block; margin-bottom: 4px; }
+  .stat .lbl{ color: var(--text); font-size:15px; }
 
   /* ABOUT */
   .about-grid{ display:grid; grid-template-columns: 100px 1fr; gap: 30px; align-items:start; }
   .about-mark{
     width: 74px; height: 74px; border-radius: 50%; border: 1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
-    font-family: var(--font-display); font-size: 24px; color: var(--signal);
-    background: var(--bg-panel);
+    font-family: var(--font-display); font-size: 24px; color: var(--line);
+    background: var(--line);
   }
   .about-body p{ color: var(--text-muted); max-width: 64ch; margin: 0 0 16px; }
   .about-body strong{ color: var(--text); }
@@ -225,7 +223,7 @@
   .contact-meta a{ color: var(--text-muted); }
   .contact-meta a:hover{ color: var(--signal); }
 
-  footer{ border-top: 1px solid var(--line); padding: 26px 0; margin-top: 20px; font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); }
+  footer{ border-top: 1px solid var(--line); padding: 26px 0; margin-top: 20px; font-family: var(--font-mono); font-size: 12px; color: var(--text); }
   .footer-inner{ display:flex; justify-content: space-between; flex-wrap:wrap; gap:10px; }
 
   @media (max-width: 720px){
@@ -235,7 +233,8 @@
     .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
     .pub-item, .pres-list li{ grid-template-columns: 1fr; gap: 6px; }
     .grant-item{ grid-template-columns: 1fr; }
-    .navlinks{ gap: 14px; }
+    .navlinks{ gap: 6px; }
+    .navlinks a{ padding: 6px 10px; font-size: 12px; }
     .contact-box{ padding: 30px; }
     .lab-teaser{ grid-template-columns: 1fr; padding: 30px; }
     .lab-figure{ order:-1; max-width: 160px; margin: 0 auto; }
@@ -251,19 +250,20 @@
 <body>
 
 <header class="nav">
-  <div class="nav-inner">
-    <button class="logo" data-goto="home" aria-label="Go to home page">
-      <svg viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg"><path d="M0,13 L6,13 Q7.5,13 8,4 Q8.5,13 10,13 L22,13" fill="none" stroke="#0B6E77" stroke-width="1.6"/></svg>
-      <span>Deepak Timalsina</span>
-    </button>
+  <div class="nav">
+    <a class="logo" href="index.html" aria-label="Go to home page" aria-current="page">
+      <svg viewBox="0 120 216" xmlns="http://www.w3.org/2000/svg"><path d="M0,13 L6,13 Q7.5,13 8,4 Q8.5,13 10,13 L22,13" fill="none" stroke="#0B6E77" stroke-width="2"/></svg>
+      <h1>HOME<h1>
+    </a>
     <nav class="navlinks" id="navlinks">
-      <a href="#about" data-goto="about">About</a>
-      <a href="#research" data-goto="research">Research</a>
-      <a href="#publications" data-goto="publications">Publications</a>
-      <a href="#grants" data-goto="grants">Grants &amp; Awards</a>
-      <a href="#presentations" data-goto="presentations">Talks</a>
-      <a href="#lab" data-goto="lab">Lab</a>
-      <a href="#contact" data-goto="contact">Contact</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="grants.html">Grants & Awards</a>
+      <a href="presentations.html">Talks</a>
+      <a href="lab.html">Lab</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -273,9 +273,7 @@
 </div>
 
 <main>
-
-  <!-- HOME -->
-  <section class="page hero-banner active" id="home">
+  <section class="hero-banner" id="home">
     <div class="hero-bg" aria-hidden="true">
       <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <circle cx="160" cy="90" r="130" fill="none" stroke="#0B6E77" stroke-opacity="0.10" stroke-width="1.5"/>
@@ -295,392 +293,42 @@
     <div class="wrap hero-inner">
       <div class="hero-grid">
         <div>
-          <p class="eyebrow">RT 00:00 — Injecting</p>
-          <h1>Finding what's barely there, one part per trillion at a time.</h1>
+          <p class="logo">RT 00:00 — Injecting</p>
+          <h1>Finding what's barely there, below part per trillion level</h1>
 
           <blockquote class="mission">
-            <p><strong>Deepak Timalsina</strong> is a PhD candidate in Bioanalytical Chemistry in the Wang Lab at the University of Kansas Department of Pharmaceutical Chemistry. His work develops the ultra-trace methods that catch PFAS in water, and the platforms that measure life's smallest molecules, at concentrations most instruments miss.</p>
+            <p>I am <strong>Deepak Timalsina</strong>, PhD candidate of Bioanalytical Chemistry in Wang Research group at University of Kansas Department of Chemistry. My work develops the ultra-trace methods to measure PFAS, also called "forever chemicals",  and develop the platforms that measure smallest molecules, at concentrations most instruments miss.</p>
             <cite>Wang Lab · Simons Biosciences Research Laboratories · Lawrence, KS</cite>
           </blockquote>
 
-          <div class="cta-row">
-            <a class="btn primary" href="#research" data-goto="research">See the research</a>
-            <a class="btn" href="#contact" data-goto="contact">Get in touch</a>
+          <div class="hero-inner">
+            <a class="btn primary" href="research.html">See the research</a>
+            <a class="btn primary" href="contact.html">Get in touch</a>
           </div>
         </div>
 
         <div class="hero-chroma" aria-hidden="true">
           <svg viewBox="0 0 1200 190" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <line class="base" x1="0" y1="165" x2="1200" y2="165"/>
+            <line class="base" x1="0" y1="500" x2="1200" y2="165"/>
             <path id="hero-trace" class="trace" d="M0,165 L120,165 Q145,165 155,120 Q165,165 185,165
               L360,165 Q392,165 405,40 Q418,165 445,165
               L620,165 Q642,165 652,95 Q662,165 685,165
               L900,165 Q928,165 940,15 Q952,165 980,165
               L1200,165"/>
             <circle class="peak-dot" cx="405" cy="40" r="4"></circle>
-            <text class="peak-label" x="415" y="30">PFAS · sub-ppt</text>
+            <text class="peak-label" x="415" y="30">Detected?</text>
           </svg>
         </div>
 
         <div class="stat-row">
           <div class="stat"><span class="num">Aug 2022</span><span class="lbl">Joined KU Chemistry</span></div>
           <div class="stat"><span class="num">Dec 2022</span><span class="lbl">Joined Wang Lab</span></div>
-          <div class="stat"><span class="num">LC-MS/MS · UPLC-MRM</span><span class="lbl">Core instrumentation</span></div>
-          <div class="stat"><span class="num">Fast-flow SPE</span><span class="lbl">Sample preparation</span></div>
-          <div class="stat"><span class="num">Proteomics · Neurotransmitter</span><span class="lbl">Bioanalysis</span></div>
           <div class="stat"><span class="num">Mar 2025</span><span class="lbl">PhD Candidate</span></div>
           <div class="stat"><span class="num">May 2027</span><span class="lbl">Expected PhD Graduation</span></div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ABOUT -->
-  <section class="page section" id="about">
-    <div class="wrap">
-      <p class="eyebrow">RT 01:15 — About</p>
-      <h2 class="section-title">About</h2>
-      <div class="about-grid">
-        <div class="about-mark">Aa</div>
-        <div class="about-body">
-          <p>I'm a PhD candidate in the <strong>Wang Lab</strong> at the <strong>University of Kansas</strong>, where I've worked since <strong>August 2022</strong> toward an expected <strong>May 2027</strong> graduation. My work sits at the intersection of environmental and biological analytical chemistry.</p>
-          <p>I develop <strong>LC-MS/MS</strong> and <strong>UPLC-MRM</strong> methods sensitive enough to quantify PFAS at sub-part-per-trillion levels in drinking water, to assess human exposure, and to measure small molecules and proteins inside biological tissue.</p>
-          <p>I also studied natural product chemistry — screening plant-derived compounds for enzyme-inhibitory bioactivity through in-silico docking and ADMET modeling.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESEARCH -->
-  <section class="page section" id="research">
-    <div class="wrap">
-      <p class="eyebrow">RT 03:40 — Research</p>
-      <h2 class="section-title">Research objectives</h2>
-      <p class="section-lede">Every objective below is something I'm trying to detect — a signal to pull out of the noise, whether that's a trace contaminant, a workable sorbent, or a protein hiding in a tissue matrix.</p>
-
-      <ul class="objectives">
-        <li>
-          <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
-          <p><strong>Push PFAS detection limits below the part-per-trillion floor</strong> — pairing fast-flow solid-phase extraction with UPLC-MS/MS to reveal contamination that conventional methods miss.</p>
-        </li>
-        <li>
-          <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
-          <p><strong>Find field-ready ways to pull PFAS out of contaminated water</strong> — evaluating zeolite sorbents and cyanobacteria toward regenerable, deployable remediation media.</p>
-        </li>
-        <li>
-          <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
-          <p><strong>Miniaturize sample prep for the field</strong> — building a pocket-sized device that brings EPA Priority 40 PFAS sample preparation out of the lab.</p>
-        </li>
-        <li>
-          <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
-          <p><strong>Quantify membrane proteins in biological tissue</strong> — using targeted UPLC-MRM proteomics to understand how contaminants and drugs move through the body.</p>
-        </li>
-      </ul>
-
-      <p class="gallery-note">// illustrated in place of lab photos — swap these tiles for real photos any time</p>
-      <div class="gallery-grid">
-
-        <figure class="gallery-tile">
-          <div class="gallery-figure">
-            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-              <line x1="35" y1="15" x2="85" y2="15" stroke="#74909D" stroke-width="1.5"/>
-              <rect x="45" y="15" width="30" height="68" rx="4" fill="none" stroke="#0B6E77" stroke-width="2"/>
-              <line x1="45" y1="48" x2="75" y2="48" stroke="#0B6E77" stroke-width="1.4" stroke-dasharray="2 3"/>
-              <path d="M60 83 L60 102" stroke="#0B6E77" stroke-width="2"/>
-              <path d="M52 95 L60 105 L68 95" fill="none" stroke="#0B6E77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <figcaption class="gallery-cap">Fast-flow SPE — concentrating PFAS before injection</figcaption>
-        </figure>
-
-        <figure class="gallery-tile">
-          <div class="gallery-figure">
-            <svg viewBox="0 0 160 90" xmlns="http://www.w3.org/2000/svg">
-              <line x1="8" y1="45" x2="26" y2="45" stroke="#74909D" stroke-width="1.4"/>
-              <circle cx="20" cy="45" r="12" fill="none" stroke="#0B6E77" stroke-width="2"/>
-              <rect x="46" y="33" width="20" height="24" fill="none" stroke="#0B6E77" stroke-width="2"/>
-              <rect x="74" y="33" width="20" height="24" fill="none" stroke="#B85C08" stroke-width="2"/>
-              <rect x="102" y="33" width="20" height="24" fill="none" stroke="#0B6E77" stroke-width="2"/>
-              <line x1="128" y1="45" x2="142" y2="45" stroke="#0B6E77" stroke-width="2"/>
-              <path d="M142 37 L156 45 L142 53 Z" fill="#0B6E77"/>
-            </svg>
-          </div>
-          <figcaption class="gallery-cap">Triple-quadrupole LC-MS/MS — the core detection platform</figcaption>
-        </figure>
-
-        <figure class="gallery-tile">
-          <div class="gallery-figure">
-            <svg viewBox="0 0 140 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0B6E77" stroke-width="1.6">
-              <polygon points="45,15 65,27 65,51 45,63 25,51 25,27"/>
-              <polygon points="90,15 110,27 110,51 90,63 70,51 70,27"/>
-              <polygon points="45,63 65,75 65,99 45,111 25,99 25,75"/>
-              <polygon points="90,63 110,75 110,99 90,111 70,99 70,75"/>
-            </svg>
-          </div>
-          <figcaption class="gallery-cap">Zeolite lattice — a sorbent candidate for PFAS capture</figcaption>
-        </figure>
-
-        <figure class="gallery-tile">
-          <div class="gallery-figure">
-            <svg viewBox="0 0 170 70" xmlns="http://www.w3.org/2000/svg">
-              <polyline points="10,50 34,22 58,50 82,22 106,50 130,22 154,50" fill="none" stroke="#0B6E77" stroke-width="2" stroke-linejoin="round"/>
-              <g fill="#fff" stroke="#B85C08" stroke-width="1.4">
-                <circle cx="34" cy="22" r="7"/><circle cx="82" cy="22" r="7"/><circle cx="130" cy="22" r="7"/>
-              </g>
-              <g font-family="IBM Plex Mono, monospace" font-size="8" fill="#B85C08" text-anchor="middle">
-                <text x="34" y="25">F</text><text x="82" y="25">F</text><text x="130" y="25">F</text>
-              </g>
-            </svg>
-          </div>
-          <figcaption class="gallery-cap">A PFAS backbone — fully fluorinated bonds that resist breakdown</figcaption>
-        </figure>
-
-        <figure class="gallery-tile">
-          <div class="gallery-figure">
-            <svg viewBox="0 0 170 70" xmlns="http://www.w3.org/2000/svg">
-              <line x1="8" y1="55" x2="162" y2="55" stroke="#DCE6EA" stroke-width="1.2"/>
-              <path d="M8,55 L44,55 Q54,55 58,20 Q62,55 72,55 L104,55 Q112,55 116,35 Q120,55 130,55 L162,55"
-                fill="none" stroke="#0B6E77" stroke-width="2"/>
-            </svg>
-          </div>
-          <figcaption class="gallery-cap">Baseline-resolved trace — clean separation, clean signal</figcaption>
-        </figure>
-
-        <figure class="gallery-tile">
-          <div class="gallery-figure">
-            <svg viewBox="0 0 170 90" xmlns="http://www.w3.org/2000/svg">
-              <g stroke="#74909D" stroke-width="1.3" fill="none">
-                <path d="M10,25 q6,-8 12,0 q6,8 12,0 q6,-8 12,0 q6,8 12,0 q6,-8 12,0 q6,8 12,0 q6,-8 12,0 q6,8 12,0 q6,-8 12,0"/>
-                <path d="M10,55 q6,8 12,0 q6,-8 12,0 q6,8 12,0 q6,-8 12,0 q6,8 12,0 q6,-8 12,0 q6,8 12,0 q6,-8 12,0 q6,8 12,0"/>
-              </g>
-              <path d="M85,15 q-18,10 0,20 q18,10 0,20 q-18,10 0,20" fill="none" stroke="#0B6E77" stroke-width="2.2"/>
-            </svg>
-          </div>
-          <figcaption class="gallery-cap">Membrane protein spanning the lipid bilayer — the proteomics target</figcaption>
-        </figure>
-
-      </div>
-
-      <div class="card-grid">
-        <div class="card">
-          <span class="tag">PFAS · SPE-UPLC-MS/MS</span>
-          <h3>Ultra-trace PFAS detection</h3>
-          <p>Fast-flow solid-phase extraction paired with UPLC-MS/MS to quantify PFAS in drinking water at sub-part-per-trillion detection limits — sensitive enough to see contamination most methods miss.</p>
-        </div>
-        <div class="card">
-          <span class="tag">ZEOLITES · CYANOBACTERIA</span>
-          <h3>PFAS remediation</h3>
-          <p>Evaluating sorbents and cyanobacteria for pulling PFAS out of contaminated water, working toward regenerable, field-compatible treatment media.</p>
-        </div>
-        <div class="card">
-          <span class="tag">FAST-FLOW SPE · PASSIVE SAMPLING</span>
-          <h3>Field-deployable sample prep</h3>
-          <p>A miniaturized and pocket-sized sample preparation device that brings EPA Priority 40 PFAS sample preparation out of the lab and into the field.</p>
-        </div>
-        <div class="card">
-          <span class="tag">UPLC-MRM · TARGETED PROTEOMICS</span>
-          <h3>Quantitative proteomics of membrane protein</h3>
-          <p>Targeted proteomics in biological tissue via UPLC-MRM, to understand the disposition of contaminants and drugs in the animal and human body.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PUBLICATIONS -->
-  <section class="page section" id="publications">
-    <div class="wrap">
-      <p class="eyebrow">RT 06:10 — Publications</p>
-      <h2 class="section-title">Selected publications</h2>
-      <div class="pub-list">
-
-        <div class="pub-item">
-          <span class="pub-status published">Published</span>
-          <div>
-            <span class="pub-venue">PLOS Water, 2026</span>
-            <p class="pub-title">Achieving sub-part per trillion trace level PFAS quantification in drinking water using an optimized fast flow solid-phase extraction and UPLC-MS/MS method</p>
-            <p class="pub-note">D. Timalsina, BS Ramisetty, MZ Wang</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-status published">Published</span>
-          <div>
-            <span class="pub-venue">Chemosphere, 2025</span>
-            <p class="pub-title">Interference of PFAS sorption on zeolites from natural water characteristics</p>
-            <p class="pub-note">Nathaniel P Sheehan, Charles A Ponge, Abe Pankratz, Justin M Hutchison, Brian B Laird, Nuong P Nguyen, Mark B Shiflett, Deepak Timalsina, Michael Zhuo Wang, Edward F Peltier</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-status published">Published</span>
-          <div>
-            <span class="pub-venue">Himalayan Fruits and Berries, 2023</span>
-            <p class="pub-title">Lycium spp. (Lycium barbarum L., Lycium chinense mill.)</p>
-            <p class="pub-note">D Timalsina, HP Devkota</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-status published">Published</span>
-          <div>
-            <span class="pub-venue">Springer Nature Singapore, 2022</span>
-            <p class="pub-title">Aster tataricus L.f.: Ethnomedicinal Uses, Phytochemistry, and Pharmacological Activities</p>
-            <p class="pub-note">Deepak Timalsina, Hari Prasad Devkota</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-status published">Published</span>
-          <div>
-            <span class="pub-venue">Ethnobotany Research and Applications, 2021</span>
-            <p class="pub-title">Traditional uses, phytochemistry and biological activities of Roscoea purpurea Sm.</p>
-            <p class="pub-note">HP Devkota, D Timalsina</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-status published">Published</span>
-          <div>
-            <span class="pub-venue">Biomolecules, 2021</span>
-            <p class="pub-title">Eclipta prostrata (L.) L. (Asteraceae): Ethnomedicinal Uses, Chemical Constituents, and Biological Activities</p>
-            <p class="pub-note">D Timalsina, HP Devkota</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-status published">Published</span>
-          <div>
-            <span class="pub-venue">BioMed Research International, 2021</span>
-            <p class="pub-title">α‐Amylase Inhibitory Activity of Catunaregam spinosa (Thunb.) Tirveng.: In Vitro and In Silico Studies</p>
-            <p class="pub-note">D Timalsina, D Bhusal, HP Devkota, KP Pokhrel, KR Sharma</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-status published">Published</span>
-          <div>
-            <span class="pub-venue">BioMed Research International, 2021</span>
-            <p class="pub-title">Pharmacologic activities of plant‐derived natural products on respiratory diseases and inflammations</p>
-            <p class="pub-note">D Timalsina, KP Pokhrel, D Bhusal</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-status published">Published</span>
-          <div>
-            <span class="pub-venue">Evidence‐Based Complementary and Alternative Medicine, 2021</span>
-            <p class="pub-title">Catunaregam spinosa (Thunb.) Tirveng: A Review of Traditional Uses, Phytochemistry, Pharmacological Activities, and Toxicological Aspects</p>
-            <p class="pub-note">D Timalsina, HP Devkota, D Bhusal, KR Sharma</p>
-          </div>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-status progress">In preparation</span>
-          <div>
-            <span class="pub-venue">&nbsp;</span>
-            <p class="pub-title">Emerging analytical techniques for ultra-trace PFAS detection in water</p>
-            <p class="pub-note">D. Timalsina, MZ Wang</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- GRANTS -->
-  <section class="page section" id="grants">
-    <div class="wrap">
-      <p class="eyebrow">RT 08:25 — Funding</p>
-      <h2 class="section-title">Grants &amp; awards</h2>
-      <div class="grant-list">
-        <div class="grant-item">
-          <div><span class="grant-src">USGS</span><span class="grant-id">Grant G25AP00168</span></div>
-          <p class="grant-desc"><strong>BIOSAFE: Quantifying Bioaccumulation of PFAS in Photosynthetic Organisms for Safe Reservoir Management</strong></p>
-        </div>
-        <div class="grant-item">
-          <div><span class="grant-src">NIEHS STTR</span><span class="grant-id">1R41ES038047-01 · with InnovaPrep LLC</span></div>
-          <p class="grant-desc"><strong>Rapid and economical system for preparation of PFAS samples to lower the method detection limit</strong></p>
-        </div>
-        <div class="grant-item">
-          <div><span class="grant-src">NIH</span><span class="grant-id">Pilot Project Program</span></div>
-          <p class="grant-desc"><strong>Targeted proteomics platform for quantification of membrane protein</strong></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRESENTATIONS -->
-  <section class="page section" id="presentations">
-    <div class="wrap">
-      <p class="eyebrow">RT 09:50 — Presentations</p>
-      <h2 class="section-title">Conference presentations</h2>
-      <ul class="pres-list">
-        <li>
-          <span class="pres-when">ASMS · Baltimore, 2025</span>
-          <span class="pres-what">Development and Optimization of SPE-UPLC-MS/MS Method for Trace-Level Detection of PFAS in Environmental Samples</span>
-        </li>
-        <li>
-          <span class="pres-when">ASMS · San Diego, 2026</span>
-          <span class="pres-what">Rapid sample preparation for SPE-UPLC-MS/MS analysis of EPA Priority 40 PFAS</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- LAB -->
-  <section class="page section" id="lab">
-    <div class="wrap">
-      <p class="eyebrow">RT 10:40 — Group</p>
-      <h2 class="section-title">The Wang Lab</h2>
-      <div class="lab-teaser">
-        <div>
-          <h3>Bioanalytical Chemistry &amp; Proteomics</h3>
-          <p>I'm part of Dr. Michael Wang's research group in the KU Department of Pharmaceutical Chemistry, based in the Simons Biosciences Research Laboratories. The lab's work spans PFAS analytics, ocular drug disposition, drug metabolism, and cancer biomarker discovery — my focus lives in the PFAS and targeted proteomics side of that portfolio.</p>
-          <a class="btn primary" href="https://pharmchem.ku.edu/michael-wang-lab-research-page">Visit the Wang Lab</a>
-        </div>
-        <div class="lab-figure" aria-hidden="true">
-          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-            <line x1="10" y1="140" x2="190" y2="140" stroke="#DCE6EA" stroke-width="2"/>
-            <rect x="20" y="95" width="34" height="45" rx="3" fill="none" stroke="#0B6E77" stroke-width="2"/>
-            <rect x="80" y="80" width="40" height="60" rx="3" fill="none" stroke="#B85C08" stroke-width="2"/>
-            <rect x="145" y="105" width="34" height="35" rx="3" fill="none" stroke="#0B6E77" stroke-width="2"/>
-            <circle cx="37" cy="80" r="7" fill="none" stroke="#0B6E77" stroke-width="1.6"/>
-            <circle cx="162" cy="90" r="7" fill="none" stroke="#0B6E77" stroke-width="1.6"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="page section contact" id="contact">
-    <div class="wrap">
-      <p class="eyebrow">RT 12:00 — Detected</p>
-      <div class="contact-box">
-        <h2>Let's talk</h2>
-        <p>Open to conversations on PFAS analytics, exposure science, environmental remediation, or where this work could go next.</p>
-        <div class="link-row">
-          <a class="btn primary" href="mailto:deepak.timalsina@ku.edu">Email me</a>
-          <a class="btn" href="https://chem.ku.edu/people/deepak-timalsina">Office website</a>
-          <a class="btn" href="https://www.linkedin.com/in/deepak-timalsina-a17a3a249/">LinkedIn</a>
-          <a class="btn" href="https://pharmchem.ku.edu/michael-wang-lab-research-page">Wang Lab</a>
-        </div>
-        <div class="contact-meta">
-          <div class="item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-            <span>Simons Biosciences Research Laboratories<br>2093 Constant Ave, Lawrence, KS 66047<br>
-              <a href="https://www.google.com/maps/search/?api=1&query=Simons+Biosciences+Research+Laboratories+2093+Constant+Ave+Lawrence+KS+66047" target="_blank" rel="noopener">View on map</a>
-            </span>
-          </div>
-          <div class="item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-            <span>Wang Lab, KU Dept. of Pharmaceutical Chemistry<br>University of Kansas</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <footer>
@@ -692,40 +340,10 @@
 
 <script>
   document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
 
+<script>
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // --- Page router: only one .page is shown at a time, swapped on click ---
-  const pages = document.querySelectorAll('.page');
-  const navLinks = document.querySelectorAll('.navlinks a');
-  const validIds = new Set(Array.from(pages).map(p => p.id));
-
-  function showPage(id, opts){
-    opts = opts || {};
-    if (!validIds.has(id)) id = 'home';
-    pages.forEach(p => p.classList.toggle('active', p.id === id));
-    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('data-goto') === id));
-    if (opts.scroll !== false){
-      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
-    }
-  }
-
-  document.querySelectorAll('[data-goto]').forEach(el => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      const id = el.getAttribute('data-goto');
-      if (location.hash !== '#' + id) history.pushState(null, '', '#' + id);
-      showPage(id);
-    });
-  });
-
-  window.addEventListener('popstate', () => {
-    showPage(location.hash.replace('#', '') || 'home', { scroll: false });
-  });
-
-  showPage(location.hash.replace('#', '') || 'home', { scroll: false });
-
-  // Hero chromatogram draw-in animation
   const trace = document.getElementById('hero-trace');
   if (trace && !prefersReduced) {
     const len = trace.getTotalLength();
