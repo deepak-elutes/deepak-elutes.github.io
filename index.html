@@ -6,10 +6,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<title>Deepak Timalsina — Bioanalytical Chemistry</title>
-<meta name="description" content="Portfolio of a PhD researcher in bioanalytical chemistry: ultra-trace PFAS detection, environmental remediation, and quantitative proteomics." />
+<title>About — Deepak Timalsina</title>
+<meta name="description" content="About Deepak Timalsina, PhD candidate in the Wang Lab at the University of Kansas." />
 <style>
-  :root{
+   :root{
     --bg: #FFF;
     --bg-alt: #F6F9FA;
     --bg-panel: #F2F6F8;
@@ -26,13 +26,12 @@
     --font-body: 'IBM Plex Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
     --maxw: 1080px;
-    --shadow: 0 1px 2px rgba(16,32,42,0.04), 0 6px 18px rgba(16,32,42,0.05);
-  }
+    --shadow: 0 1px 2px rgba(16,32,42,0.04), 0 6px 18px rgba(16,32,42,0.05);}
 
   *{ box-sizing: border-box; }
   html{ scroll-behavior: smooth; }
   body{
-    margin:1;
+    margin:0;
     background: var(--bg);
     background-image:
       radial-gradient(ellipse 900px 500px at 15% -10%, rgba(11,110,119,0.05), transparent 60%),
@@ -42,11 +41,11 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  a{ color: var(--text); text-decoration: none; }
+  a{ color: var(--signal); text-decoration: none; }
   a:hover{ text-decoration: underline; }
   a:focus-visible, button:focus-visible{ outline: 2px solid var(--signal); outline-offset: 3px; }
 
-  .wrap{ max-width: var(--maxw); margin: 1 auto; padding: 0 28px; }
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
 
   /* NAV */
   header.nav{
@@ -86,12 +85,12 @@
     color: var(--signal); text-transform: uppercase; margin: 0 0 14px;
     display:flex; align-items:center; gap:10px;
   }
-  .eyebrow::before{ content:''; width:16px; height:1px; background: var(--text); display:inline-block; }
+  .eyebrow::before{ content:''; width:16px; height:1px; background: var(--signal); display:inline-block; }
   h2.section-title{
-    font-family: var(--text); font-weight: 600; font-size: clamp(26px, 3.4vw, 38px);
+    font-family: var(--font-display); font-weight: 600; font-size: clamp(26px, 3.4vw, 38px);
     margin: 0 0 22px; color: var(--text);
   }
-  .section-lede{ color: var(--text); max-width: 62ch; margin: 0 0 34px; font-size: 15.5px; }
+  .section-lede{ color: var(--text-muted); max-width: 62ch; margin: 0 0 34px; font-size: 15.5px; }
 
   /* HOME / MASTHEAD */
   .hero-banner{ position: relative; overflow:hidden; padding: 120px 0 0; border-bottom: 1px solid var(--line); }
@@ -125,22 +124,26 @@
   .hero-chroma path.trace{ fill:none; stroke: var(--signal); stroke-width:2; }
   .hero-chroma path.base{ fill:none; stroke: var(--line); stroke-width:1; }
   .hero-chroma .peak-dot{ fill: var(--flag); }
-  .hero-chroma .peak-label{ font-family: var(--text); font-size: 20px; fill: var(--text); }
+  .hero-chroma .peak-label{ font-family: var(--font-mono); font-size: 10px; fill: var(--text-faint); }
 
   .stat-row{ display:flex; gap: 40px; flex-wrap:wrap; padding: 26px 0 42px; border-top: 1px solid var(--line); margin-top: 8px; }
   .stat{ font-family: var(--font-mono); }
   .stat .num{ color: var(--signal); font-size: 20px; display:block; margin-bottom: 4px; }
-  .stat .lbl{ color: var(--text); font-size:15px; }
+  .stat .lbl{ color: var(--text-faint); font-size: 20px; }
 
   /* ABOUT */
-  .about-grid{ display:grid; grid-template-columns: 100px 1fr; gap: 30px; align-items:start; }
+  .about-grid{ display:grid; grid-template-columns: 160px 1fr; gap: 30px; align-items:start; }
   .about-mark{
-    width: 74px; height: 74px; border-radius: 50%; border: 1px solid var(--line);
+    width: 160px; height: 160px; border-radius: 50%; border: 1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
     font-family: var(--font-display); font-size: 24px; color: var(--line);
     background: var(--line);
+    overflow: hidden;
   }
-  .about-body p{ color: var(--text-muted); max-width: 64ch; margin: 2 0 16px; }
+  .about-mark img{
+    width: 100%; height: 100%; object-fit: cover; display:block;
+  }
+  .about-body p{ color: var(--text); max-width: 64ch; margin: 0 0 16px; }
   .about-body strong{ color: var(--text); }
 
   /* RESEARCH OBJECTIVES */
@@ -223,12 +226,12 @@
   .contact-meta a{ color: var(--text-muted); }
   .contact-meta a:hover{ color: var(--signal); }
 
-  footer{ border-top: 1px solid var(--line); padding: 26px 0; margin-top: 20px; font-family: var(--font-mono); font-size: 12px; color: var(--text); }
+  footer{ border-top: 1px solid var(--line); padding: 26px 0; margin-top: 20px; font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); }
   .footer-inner{ display:flex; justify-content: space-between; flex-wrap:wrap; gap:10px; }
 
   @media (max-width: 720px){
     .about-grid{ grid-template-columns: 1fr; }
-    .about-mark{ margin-bottom: 4px; }
+    .about-mark{ margin-bottom: 4px; width: 120px; height: 120px; }
     .card-grid{ grid-template-columns: 1fr; }
     .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
     .pub-item, .pres-list li{ grid-template-columns: 1fr; gap: 6px; }
