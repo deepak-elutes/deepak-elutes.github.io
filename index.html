@@ -61,7 +61,7 @@
   }
   .logo{
     display:flex; align-items:center; gap:10px; font-family: var(--font-mono); font-size:14px;
-    color: var(--text); background:none; border:none; cursor:pointer; padding:0;
+    color: var(--signal); background:none; border:none; cursor:pointer; padding:0;
   }
   .logo svg{ width:22px; height:16px; display:block; }
   .navlinks{ display:flex; gap: 8px; flex-wrap: wrap; }
@@ -96,6 +96,46 @@
   .hero-banner{ position: relative; overflow:hidden; padding: 120px 0 0; border-bottom: 1px solid var(--line); }
   .hero-bg{ position:absolute; inset:0; z-index:0; opacity:2.0; }
   .hero-bg svg{ width:100%; height:100%; }
+
+  /* molecular / particle animations */
+  .drift-a{ animation: driftA 16s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+  .drift-b{ animation: driftB 20s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+  .drift-c{ animation: driftC 13s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+  @keyframes driftA{ 0%{ transform: translate(0,0) scale(1); } 100%{ transform: translate(14px,-10px) scale(1.05); } }
+  @keyframes driftB{ 0%{ transform: translate(0,0) scale(1); } 100%{ transform: translate(-18px,12px) scale(0.96); } }
+  @keyframes driftC{ 0%{ transform: translate(0,0); } 100%{ transform: translate(10px,8px); } }
+
+  .baseline-wave{ animation: waveBob 7s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes waveBob{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-6px); } }
+
+  .molecule-group{ animation: moleculeFloat 9s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .molecule-group-2{ animation: moleculeFloat2 11s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .molecule-group-3{ animation: moleculeSpin 24s linear infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes moleculeFloat{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-9px); } }
+  @keyframes moleculeFloat2{ 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(-8px,10px); } }
+  @keyframes moleculeSpin{ 0%{ transform: rotate(0deg); } 100%{ transform: rotate(360deg); } }
+
+  .atom-pulse{ animation: atomPulse 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .atom-pulse:nth-child(2){ animation-delay: .5s; }
+  .atom-pulse:nth-child(3){ animation-delay: 1s; }
+  .atom-pulse:nth-child(4){ animation-delay: 1.5s; }
+  @keyframes atomPulse{ 0%,100%{ opacity: .85; transform: scale(1); } 50%{ opacity: 1; transform: scale(1.18); } }
+
+  .bubble-field{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  .bubble{
+    position:absolute; bottom:-40px; border-radius:50%;
+    background: radial-gradient(circle at 32% 28%, rgba(255,255,255,0.85), rgba(11,110,119,0.14) 70%);
+    border: 1px solid rgba(11,110,119,0.22);
+    opacity:0;
+    animation: bubbleRise linear infinite;
+  }
+  @keyframes bubbleRise{
+    0%{ transform: translateY(0) translateX(0); opacity:0; }
+    8%{ opacity:.55; }
+    92%{ opacity:.3; }
+    100%{ transform: translateY(-560px) translateX(var(--drift, 20px)); opacity:0; }
+  }
+
   .hero-fade{ position:absolute; inset:0; z-index:1; background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, var(--bg) 90%); }
   .hero-inner{ position:relative; z-index:2; }
   .hero-grid{ display:grid; gap: 26px; padding-bottom: 8px; }
@@ -123,13 +163,17 @@
   .hero-chroma svg{ width:100%; height: clamp(100px,16vw,150px); display:block; }
   .hero-chroma path.trace{ fill:none; stroke: var(--signal); stroke-width:2; }
   .hero-chroma path.base{ fill:none; stroke: var(--line); stroke-width:1; }
-  .hero-chroma .peak-dot{ fill: var(--flag); }
-  .hero-chroma .peak-label{ font-family: var(--font-mono); font-size: 10px; fill: var(--text-faint); }
+  .hero-chroma .peak-dot{ fill: var(--flag); transform-box: fill-box; transform-origin: center; animation: peakPulse 0.5s ease-in-out infinite; animation-delay: 1.8s; }
+  .hero-chroma .peak-label{ font-family: var(--font-mono); font-size: 16px; fill: var(--text-faint); }
+  @keyframes peakPulse{
+    0%, 100%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(184,92,8,0)); }
+    50%{ transform: scale(5); filter: drop-shadow(0 0 6px rgba(184,92,8,0.55)); }
+  }
 
-  .stat-row{ display:flex; gap: 40px; flex-wrap:wrap; padding: 26px 0 42px; border-top: 1px solid var(--line); margin-top: 8px; }
+  .stat-row{ display:flex; gap: 50px; flex-wrap:wrap; padding: 26px 0 42px; border-top: 1px solid var(--line); margin-top: px; }
   .stat{ font-family: var(--font-mono); }
-  .stat .num{ color: var(--signal); font-size: 20px; display:block; margin-bottom: 4px; }
-  .stat .lbl{ color: var(--text-faint); font-size: 20px; }
+  .stat .num{ color: var(--text); font-size: 20px; display:block; margin-bottom: 4px; }
+  .stat .lbl{ color: var(--flag); font-size: 15px; }
 
   /* ABOUT */
   .about-grid{ display:grid; grid-template-columns: 160px 1fr; gap: 30px; align-items:start; }
@@ -253,17 +297,17 @@
 <body>
 
 <header class="nav">
-  <div class="nav">
+  <div class="nav-inner">
     <a class="logo" href="index.html" aria-label="Go to home page" aria-current="page">
       <svg viewBox="0 120 216" xmlns="http://www.w3.org/2000/svg"><path d="M0,13 L6,13 Q7.5,13 8,4 Q8.5,13 10,13 L22,13" fill="none" stroke="#0B6E77" stroke-width="2"/></svg>
-    <h1>🏠<h1>
+    <h1>🏠</h1>
     </a>
     <nav class="navlinks" id="navlinks">
       <a href="about.html">About</a>
       <a href="research.html">Research</a>
       <a href="publications.html">Publications</a>
       <a href="grants.html">Grants & Awards</a>
-      <a href="presentations.html">Talks</a>
+      <a href="presentations.html">Presentations</a>
       <a href="lab.html">Lab</a>
       <a href="news.html">News</a>
       <a href="contact.html">Contact</a>
@@ -279,17 +323,48 @@
   <section class="hero-banner" id="home">
     <div class="hero-bg" aria-hidden="true">
       <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="160" cy="90" r="130" fill="none" stroke="#0B6E77" stroke-opacity="0.10" stroke-width="1.5"/>
-        <circle cx="1040" cy="70" r="190" fill="none" stroke="#0B6E77" stroke-opacity="0.07" stroke-width="1.5"/>
-        <circle cx="980" cy="320" r="80" fill="none" stroke="#B85C08" stroke-opacity="0.10" stroke-width="1.5"/>
-        <polyline points="60,390 110,355 160,390 210,355 260,390 310,355 360,390 410,355"
+        <circle class="drift-a" cx="160" cy="90" r="130" fill="none" stroke="#0B6E77" stroke-opacity="0.10" stroke-width="1.5"/>
+        <circle class="drift-b" cx="1040" cy="70" r="190" fill="none" stroke="#0B6E77" stroke-opacity="0.07" stroke-width="1.5"/>
+        <circle class="drift-c" cx="980" cy="320" r="80" fill="none" stroke="#B85C08" stroke-opacity="0.10" stroke-width="1.5"/>
+        <polyline class="baseline-wave" points="60,390 110,355 160,390 210,355 260,390 310,355 360,390 410,355"
           fill="none" stroke="#0B6E77" stroke-opacity="0.16" stroke-width="2" stroke-linejoin="round"/>
-        <g stroke="#0B6E77" stroke-opacity="0.14" stroke-width="1.5" fill="none">
-          <circle cx="850" cy="130" r="9"/><circle cx="905" cy="102" r="9"/><circle cx="960" cy="130" r="9"/>
+
+        <!-- molecule cluster 1: existing triangle, atoms now pulse -->
+        <g class="molecule-group" stroke="#0B6E77" stroke-opacity="0.14" stroke-width="1.5" fill="none">
+          <circle class="atom-pulse" cx="850" cy="130" r="9"/><circle class="atom-pulse" cx="905" cy="102" r="9"/><circle class="atom-pulse" cx="960" cy="130" r="9"/>
           <line x1="850" y1="130" x2="905" y2="102"/><line x1="905" y1="102" x2="960" y2="130"/>
           <line x1="905" y1="102" x2="905" y2="58"/>
         </g>
+
+        <!-- molecule cluster 2: PFAS-style zig-zag fluorocarbon chain, drifting -->
+        <g class="molecule-group-2" stroke="#B85C08" stroke-opacity="0.16" stroke-width="1.5" fill="none">
+          <polyline points="120,220 150,195 180,220 210,195 240,220 270,195" stroke-linejoin="round"/>
+          <circle class="atom-pulse" cx="150" cy="195" r="6" fill="#B85C08" fill-opacity="0.12"/>
+          <circle class="atom-pulse" cx="210" cy="195" r="6" fill="#B85C08" fill-opacity="0.12"/>
+          <circle class="atom-pulse" cx="270" cy="195" r="6" fill="#B85C08" fill-opacity="0.12"/>
+        </g>
+
+        <!-- molecule cluster 3: benzene-style ring, slow continuous rotation -->
+        <g class="molecule-group-3" stroke="#0B6E77" stroke-opacity="0.13" stroke-width="1.5" fill="none">
+          <polygon points="1080,300 1108,315 1108,347 1080,362 1052,347 1052,315"/>
+          <circle class="atom-pulse" cx="1080" cy="300" r="4"/>
+          <circle class="atom-pulse" cx="1108" cy="315" r="4"/>
+          <circle class="atom-pulse" cx="1108" cy="347" r="4"/>
+          <circle class="atom-pulse" cx="1080" cy="362" r="4"/>
+        </g>
       </svg>
+    </div>
+    <div class="bubble-field" aria-hidden="true">
+      <span class="bubble" style="left:6%; width:14px; height:14px; --drift:18px; animation-duration:11s; animation-delay:0s;"></span>
+      <span class="bubble" style="left:16%; width:9px; height:9px; --drift:-12px; animation-duration:9s; animation-delay:1.4s;"></span>
+      <span class="bubble" style="left:27%; width:18px; height:18px; --drift:10px; animation-duration:14s; animation-delay:2.6s;"></span>
+      <span class="bubble" style="left:41%; width:11px; height:11px; --drift:-16px; animation-duration:10s; animation-delay:.6s;"></span>
+      <span class="bubble" style="left:58%; width:15px; height:15px; --drift:14px; animation-duration:12.5s; animation-delay:3.4s;"></span>
+      <span class="bubble" style="left:69%; width:8px; height:8px; --drift:-9px; animation-duration:8.5s; animation-delay:2s;"></span>
+      <span class="bubble" style="left:80%; width:17px; height:17px; --drift:20px; animation-duration:13.5s; animation-delay:.9s;"></span>
+      <span class="bubble" style="left:91%; width:12px; height:12px; --drift:-14px; animation-duration:10.5s; animation-delay:4.1s;"></span>
+      <span class="bubble" style="left:36%; width:7px; height:7px; --drift:8px; animation-duration:9.5s; animation-delay:5s;"></span>
+      <span class="bubble" style="left:87%; width:10px; height:10px; --drift:12px; animation-duration:11.5s; animation-delay:1.9s;"></span>
     </div>
     <div class="hero-fade" aria-hidden="true"></div>
 
@@ -320,6 +395,20 @@
               L1200,165"/>
             <circle class="peak-dot" cx="405" cy="40" r="4"></circle>
             <text class="peak-label" x="415" y="30">Detected?</text>
+          </svg>
+          </div>
+
+         </section>
+         <div class="hero-chroma" aria-hidden="true">
+          <svg viewBox="0 0 1200 190" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <line class="base" x1="0" y1="500" x2="1200" y2="165"/>
+            <path id="hero-trace" class="trace" d="M0,165 L120,165 Q145,165 155,120 Q165,165 185,165
+              L360,165 Q392,165 405,40 Q418,165 445,165
+              L620,165 Q642,165 652,95 Q662,165 685,165
+              L900,165 Q928,165 940,15 Q952,165 980,165
+              L1200,165"/>
+            <circle class="peak-dot" cx="940" cy="10" r="4"></circle>
+            <text class="peak-label" x="950" y="10">Separated?</text>
           </svg>
         </div>
 
