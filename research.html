@@ -105,7 +105,14 @@
     font-size: clamp(32px, 5.2vw, 58px); line-height: 1.1; letter-spacing: -0.01em;
     margin: 10px 0 26px; max-width: 16ch; color: var(--text);
   }
-
+.research-hero{
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)),
+    url("images/Experiment1.heic") center / cover no-repeat;
+  padding: 70px 0 80px;
+}
   .mission{ margin: 0 0 30px; padding: 4px 0 4px 22px; border-left: 2px solid var(--signal); max-width: 58ch; }
   .mission p{ font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(17px, 2vw, 20px); color: var(--text); line-height: 1.55; margin: 0; }
   .mission cite{ display:block; font-style: normal; font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); margin-top: 12px; letter-spacing: .03em; }
@@ -273,7 +280,7 @@
 </div>
 
 <main>
-  <section class="section" id="research">
+  <section class="section research-hero" id="research">
     <div class="wrap">
       <p class="eyebrow">RT 03:40 — Research</p>
       <h1 class="section-title">Research Focus</h1>
