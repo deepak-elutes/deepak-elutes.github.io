@@ -161,19 +161,26 @@
   .about-body p{ color: var(--text-muted); max-width: 64ch; margin: 0 0 16px; }
   .about-body strong{ color: var(--text); }
 
+  /* RESEARCH INTRO — text + objectives on the left, image spans both on the right */
  .research-intro{
   display:grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 320px;
   gap:50px;
   align-items:stretch;
-  margin-bottom:0;
+  margin-bottom:46px;
+}
+
+.research-intro-left{
+  display:flex;
+  flex-direction:column;
 }
 
 .research-photo{
-  width:200%;
-  height:200%;
+  width:100%;
+  height:100%;
+  min-height:520px;
   object-fit:cover;
-  opacity:0.85;
+  opacity:0.9;
   border-radius:8px;
   border:1px solid var(--line);
   box-shadow: var(--shadow);
@@ -184,7 +191,7 @@
   grid-template-columns: 1fr;
 }
 /* RESEARCH OBJECTIVES */
-  .objectives{ list-style:none; margin: 0 0 46px; padding:0; display:flex; flex-direction:column; gap:16px; max-width: 68ch; }
+  .objectives{ list-style:none; margin: 0; padding:0; display:flex; flex-direction:column; gap:16px; max-width: 68ch; }
   .objectives li{ display:flex; gap: 14px; align-items:flex-start; }
   .objectives .peak-bullet{ flex:none; width:16px; height:16px; margin-top:5px; }
   .objectives .peak-bullet svg{ width:100%; height:100%; display:block; }
@@ -268,7 +275,7 @@
 
   @media (max-width: 720px){
     .research-intro{ grid-template-columns: 1fr; }
-    .research-photo{ height: 220px; order: -1; }
+    .research-photo{ height: 220px; min-height:220px; order: -1; }
     .about-grid{ grid-template-columns: 1fr; }
     .about-mark{ margin-bottom: 4px; }
     .card-grid{ grid-template-columns: fr; }
@@ -318,34 +325,34 @@
   <section class="section" id="research">
     <div class="wrap">
       <div class="research-intro">
-        <div>
+        <div class="research-intro-left">
           <p class="eyebrow">RT 03:40 — Research</p>
           <h1 class="section-title">Research Focus</h1>
           <p class="section-lede">Every objective below is something <strong>I'm trying to detect </strong> : a signal to pull out of the noise, whether that's a trace contaminant, a workable sorbent, or a protein hiding in a tissue matrix.</p>
+
+          <ul class="objectives">
+            <li>
+              <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
+              <p><strong>Push PFAS detection limits below the part-per-trillion floor</strong>: pairing fast-flow solid-phase extraction with UPLC-MS/MS to reveal contamination that conventional methods miss.</p>
+            </li>
+            <li>
+              <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
+              <p><strong>Find field-ready ways to pull PFAS out of contaminated water</strong> — evaluating zeolite sorbents and cyanobacteria toward regenerable, deployable remediation media.</p>
+            </li>
+            <li>
+              <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
+              <p><strong>Miniaturize sample prep for the field</strong> — building a pocket-sized device that brings EPA Priority 40 PFAS sample preparation out of the lab.</p>
+            </li>
+            <li>
+              <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
+              <p><strong>Quantify membrane proteins in biological tissue</strong> — using targeted UPLC-MRM proteomics to understand how contaminants and drugs move through the body.</p>
+            </li>
+          </ul>
         </div>
-        <img class="research-photo" src="images/Experiment1.jpg" alt="Deepak Timalsina in the lab" onerror="this.parentElement.classList.add('research-intro-noimg'); this.remove();">
+
+        <img class="research-photo" src="images/Experiment1.jpg" alt="Deepak Timalsina in the lab" onerror="this.parentElement.parentElement.classList.add('research-intro-noimg'); this.remove();">
       </div>
 
-      <ul class="objectives">
-        <li>
-          <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
-          <p><strong>Push PFAS detection limits below the part-per-trillion floor</strong>: pairing fast-flow solid-phase extraction with UPLC-MS/MS to reveal contamination that conventional methods miss.</p>
-        </li>
-        <li>
-          <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
-          <p><strong>Find field-ready ways to pull PFAS out of contaminated water</strong> — evaluating zeolite sorbents and cyanobacteria toward regenerable, deployable remediation media.</p>
-        </li>
-        <li>
-          <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
-          <p><strong>Miniaturize sample prep for the field</strong> — building a pocket-sized device that brings EPA Priority 40 PFAS sample preparation out of the lab.</p>
-        </li>
-        <li>
-          <span class="peak-bullet" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--signal)" stroke-width="1.6"/><circle cx="8" cy="8" r="2" fill="var(--signal)"/></svg></span>
-          <p><strong>Quantify membrane proteins in biological tissue</strong> — using targeted UPLC-MRM proteomics to understand how contaminants and drugs move through the body.</p>
-        </li>
-      </ul>
-  
-  
       <div class="card-grid">
         <div class="card">
           <span class="tag">Faste Flow SPE · UPLC-MS/MS</span>
