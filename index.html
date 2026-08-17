@@ -15,7 +15,7 @@
     --bg-panel: #F2F6F8;
     --bg-panel-2: #E9F0F3;
     --line: #DCE6EA;
-    --signal: #001CFF;
+    --signal: #22C0F0;
     --signal-dim: rgba(11,110,119,0.28);
     --signal-faint: rgba(11,110,119,0.07);
     --flag: #B85C08;
@@ -161,9 +161,9 @@
 
   .hero-chroma{ width:100%; }
   .hero-chroma svg{ width:100%; height: clamp(100px,16vw,150px); display:block; }
-  .hero-chroma path.trace{ fill:none; stroke: var(--signal); stroke-width:2; }
+  .hero-chroma path.trace{ fill:none; stroke: var(--text-muted); stroke-width:2; }
   .hero-chroma path.base{ fill:none; stroke: var(--line); stroke-width:1; }
-  .hero-chroma .peak-dot{ fill: var(--flag); transform-box: fill-box; transform-origin: center; animation: peakPulse 0.5s ease-in-out infinite; animation-delay: 1.8s; }
+  .hero-chroma .peak-dot{ fill: var(--text); transform-box: fill-box; transform-origin: center; animation: peakPulse 0.5s ease-in-out infinite; animation-delay: 1.8s; }
   .hero-chroma .peak-label{ font-family: var(--font-mono); font-size: 16px; fill: var(--text-faint); }
   @keyframes peakPulse{
     0%, 100%{ transform: scale(1); filter: drop-shadow(0 0 0 rgba(184,92,8,0)); }
